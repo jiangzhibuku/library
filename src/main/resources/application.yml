@@ -7,4 +7,11 @@ spring:
     url: jdbc:mysql://localhost:3306/library?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
     username: root
     # ↓↓↓ 把下面这行改成你自己的 MySQL 密码 ↓↓↓
-    password: "b1234567"
+    password: "Root@123456"
+
+
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
