@@ -1,6 +1,7 @@
 package com.example.library.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.example.library.common.Result;
 import com.example.library.entity.Book;
 import com.example.library.service.BookService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,10 +20,10 @@ public class BookController {
     }
 
     @GetMapping
-    public Page<Book> page(
+    public Result<Page<Book>> page(
             @RequestParam(defaultValue = "1") long page,
             @RequestParam(defaultValue = "10") long size,
             @RequestParam(required = false) String keyword) {
-        return bookService.page(page, size, keyword);
+        return Result.ok(bookService.page(page, size, keyword));
     }
 }
