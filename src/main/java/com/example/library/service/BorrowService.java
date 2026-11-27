@@ -1,5 +1,6 @@
 package com.example.library.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.library.common.BizException;
 import com.example.library.entity.Book;
@@ -57,8 +58,7 @@ public class BorrowService {
         bookMapper.increaseStock(borrow.getBookId());
     }
 
-    public Page<Borrow> page(long page, long size) {
-        Page<Borrow> p = new Page<>(page, size);
-        return borrowMapper.selectPage(p, null);
+    public IPage<Borrow> page(long page, long size) {
+        return borrowMapper.selectBorrowPage(new Page<>(page, size));
     }
 }

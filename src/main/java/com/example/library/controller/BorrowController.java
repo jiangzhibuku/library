@@ -1,5 +1,6 @@
 package com.example.library.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.library.common.Result;
 import com.example.library.entity.Borrow;
@@ -34,8 +35,8 @@ public class BorrowController {
     }
 
     @GetMapping
-    public Result<Page<Borrow>> page(@RequestParam(defaultValue = "1") long page,
-                                     @RequestParam(defaultValue = "10") long size) {
+    public Result<IPage<Borrow>> page(@RequestParam(defaultValue = "1") long page,
+                                      @RequestParam(defaultValue = "10") long size) {
         return Result.ok(borrowService.page(page, size));
     }
 }

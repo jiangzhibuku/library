@@ -1,6 +1,7 @@
 package com.example.library.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -24,4 +25,7 @@ public class Borrow {
     private LocalDateTime borrowTime;
 
     private LocalDateTime returnTime;
+    /** 非数据库字段，联表查出来的书名 */
+    @TableField(exist = false)
+    private String bookTitle;
 }
